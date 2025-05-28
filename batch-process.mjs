@@ -3,7 +3,17 @@ import { execSync } from 'child_process';
 import path from 'path';
 
 process.env.CI = 'true';
-const targets = JSON.parse(fs.readFileSync('targets.json', 'utf-8'));
+const commits = (fs.readFileSync('commits.txt', 'utf-8')).split('\n');
+// console.log(targets)
+
+const targets = commits.map(c=>{
+  return {
+    "owner": "vuejs",
+    "repo": "core",
+    "commit": c
+  }
+})
+
 const ROOT = process.cwd();
 
 for (const { owner, repo, commit } of targets) {

@@ -32,7 +32,7 @@ async function main() {
       coverage:Object.keys(coverageData).length
     },'payload')
 
-    const SERVER_URL = `https://simple.canyonjs.org/coverage/client`
+    const SERVER_URL = `http://127.0.0.1:8081/coverage/client`
 
     console.log('Reporting coverage to:', SERVER_URL);
 
